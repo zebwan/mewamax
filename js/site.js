@@ -572,6 +572,30 @@ window.addEventListener('scroll', () => {
   header?.classList.toggle('is-hidden', y > lastY && y > 120 && !menuOpen);
   lastY = y;
 }, { passive: true });
+/* MEWAMAX (round 4): the header takes the colour of the section under it. Each section carries data-band;
+   the header gets the same band-* class, so its background, text, rule and clock re-theme through the tokens.
+   On the dark bands the logo lettering switches to its white version. */
+(function headerBand() {
+  if (!header) return;
+  const zones = [...document.querySelectorAll('[data-band]')], DARK = ['plum', 'deep'],
+    word = header.querySelector('.logo-word'), darkSrc = word?.getAttribute('src'), lightSrc = word?.dataset.srcLight;
+  if (lightSrc) new Image().src = lightSrc;
+  let current = null, queued = false;
+  function update() {
+    queued = false;
+    const probe = header.offsetHeight + 1;   /* just under the bar: at the top of the page nothing is behind it yet */
+    const zone = zones.find(z => { const r = z.getBoundingClientRect(); return r.top <= probe && r.bottom > probe; });
+    const band = zone ? zone.dataset.band : 'green';
+    if (band === current) return;
+    if (current && current !== 'green') header.classList.remove('band-' + current);
+    if (band !== 'green') header.classList.add('band-' + band);
+    if (word && lightSrc) word.src = DARK.includes(band) ? lightSrc : darkSrc;
+    current = band;
+  }
+  const q = () => { if (!queued) { queued = true; requestAnimationFrame(update); } };
+  window.addEventListener('scroll', q, { passive: true }); window.addEventListener('resize', q);
+  update();
+})();
 const menuBtn = document.querySelector('[data-menu-toggle]'), menu = document.querySelector('[data-menu]');
 function setMenu(open) {
   menu?.classList.toggle('is-open', open);

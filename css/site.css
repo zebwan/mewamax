@@ -452,6 +452,9 @@ a:hover .arrow-glyph,a:focus-visible .arrow-glyph,button:hover .arrow-glyph,butt
 .band-yellow { --bg:#fcd800;--ink:#0e3b1f;--muted:#617214;--muted-soft:#778011;--text-2:#3b5919;--faint:#b2a70a;--line:#d8c005;--line-soft:#e9cb02;--line-nav:#dfc504;--filter:#8c8e0f }
 .band-lime { --bg:#9ab73a;--ink:#0e3b1f;--muted:#2b5525;--muted-soft:#3b6328;--text-2:#0e3b1f;--faint:#688a30;--line:#81a135;--line-soft:#8cab37;--line-nav:#85a436;--filter:#4c722b }
 .band-plum .reel-meta { color:#ffffff }
+.band-deep { --bg:#0e3b1f;--ink:#ffffff;--white:#0e3b1f;--muted:#b4c2b9;--muted-soft:#9fb1a5;--text-2:#cfd8d2;--faint:#566f5f;--line:#2b533a;--line-soft:#21492f;--line-nav:#2b533a;--filter:#7e9586 }
+/* header follows the colour of the section under it (round 4) */
+.site-header { color:var(--ink);transition:transform .45s var(--ease-out),background-color .35s ease,color .35s ease,border-color .35s ease }
 /* the template's pixel-grid colour change, now at every band edge: pixels take the NEXT section's colour */
 .px-to-green { color:#89c53e } .px-to-plum { color:#702d4f } .px-to-teal { color:#25bcb5 }
 .px-to-orange { color:#f9672a } .px-to-lime { color:#9ab73a } .px-to-deep { color:#0e3b1f }
