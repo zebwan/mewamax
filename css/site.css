@@ -449,6 +449,7 @@ a:hover .arrow-glyph,a:focus-visible .arrow-glyph,button:hover .arrow-glyph,butt
 .band-plum { --bg:#702d4f;--ink:#ffffff;--white:#702d4f;--muted:#ba9aab;--muted-soft:#ad879b;--text-2:#d6c2cc;--faint:#8e5974;--line:#7e4261;--line-soft:#773858;--line-nav:#7b3e5d;--filter:#a1748b }
 .band-teal { --bg:#25bcb5;--ink:#0e3b1f;--muted:#12543c;--muted-soft:#15634e;--text-2:#0e3b1f;--faint:#1c8c7e;--line:#21a398;--line-soft:#23afa6;--line-nav:#22a99e;--filter:#18715e }
 .band-orange { --bg:#f9672a;--ink:#08250f;--muted:#493716;--muted-soft:#663f1a;--text-2:#08250f;--faint:#ac5221;--line:#d25c26;--line-soft:#e66228;--line-nav:#da5e26;--filter:#80461c }
+.band-yellow { --bg:#fcd800;--ink:#0e3b1f;--muted:#617214;--muted-soft:#778011;--text-2:#3b5919;--faint:#b2a70a;--line:#d8c005;--line-soft:#e9cb02;--line-nav:#dfc504;--filter:#8c8e0f }
 .band-lime { --bg:#9ab73a;--ink:#0e3b1f;--muted:#2b5525;--muted-soft:#3b6328;--text-2:#0e3b1f;--faint:#688a30;--line:#81a135;--line-soft:#8cab37;--line-nav:#85a436;--filter:#4c722b }
 .band-plum .reel-meta { color:#ffffff }
 /* the template's pixel-grid colour change, now at every band edge: pixels take the NEXT section's colour */
