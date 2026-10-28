@@ -23,7 +23,7 @@ html { scrollbar-width:thin;scrollbar-color:var(--ink) var(--bg) }
 ::-webkit-scrollbar { width:6px;height:6px }
 ::-webkit-scrollbar-track { background:var(--bg) }
 ::-webkit-scrollbar-thumb { background:var(--ink) }
-::-webkit-scrollbar-thumb:hover { background:#123f20 }
+::-webkit-scrollbar-thumb:hover { background:var(--text-2) }
 .section-label { font-size:13px;line-height:16px;letter-spacing:.01em }
 .link-underline { display:inline-block;padding-bottom:3px;background:linear-gradient(currentColor,currentColor) left bottom / 100% 1px no-repeat;transition:background-size .4s var(--ease-out) }
 .link-underline:hover { background-size:0% 1px;background-position:right bottom }
@@ -151,7 +151,7 @@ a:hover .arrow-glyph,a:focus-visible .arrow-glyph,button:hover .arrow-glyph,butt
 .services-copy { display:flex;flex-direction:column;gap:40px;grid-column:8 / 13;padding-top:8px }
 .services-label { display:block }
 .services-title { max-width:540px;font-size:var(--display-m);line-height:1.045;letter-spacing:-.025em }
-.services-text { max-width:460px;color:#123f20;font-weight:var(--book) }
+.services-text { max-width:460px;color:var(--text-2);font-weight:var(--book) }
 .services-list { display:flex;flex-direction:column;border-top:1px solid var(--line) }
 .service-row { position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));column-gap:var(--col-gap);align-items:center;width:100%;height:64px;border-bottom:1px solid var(--line);color:var(--faint);cursor:pointer;transition:color .3s }
 .service-progress { position:absolute;top:-1px;left:0;right:0;height:1px;background:var(--ink);transform:scaleX(0);transform-origin:left center;pointer-events:none }
@@ -164,7 +164,7 @@ a:hover .arrow-glyph,a:focus-visible .arrow-glyph,button:hover .arrow-glyph,butt
 .work-title-count { letter-spacing:-.045em }
 .work-toolbar { display:flex;align-items:center;justify-content:space-between;gap:24px;padding-top:14px;border-top:1px solid var(--line) }
 .work-filters { display:flex;flex-wrap:wrap;gap:8px 28px }
-.work-filter { display:flex;gap:2px;color:#457a2c;font-size:17px;line-height:22px;transition:color .25s }
+.work-filter { display:flex;gap:2px;color:var(--filter);font-size:17px;line-height:22px;transition:color .25s }
 .work-filter:hover,.work-filter.is-active { color:var(--ink) }
 .work-filter-count { font-size:11px;line-height:12px;vertical-align:top }
 .work-grid { display:grid;grid-template-columns:1fr 1fr;column-gap:var(--col-gap);row-gap:56px;align-items:start;padding:0 var(--gutter) }
@@ -441,6 +441,23 @@ a:hover .arrow-glyph,a:focus-visible .arrow-glyph,button:hover .arrow-glyph,butt
   .statement-word { opacity:1 }
 }
 /* ---- Mewamax adaptations (content only; layout untouched) ---- */
+:root { --text-2: #123f20; --filter: #457a2c; --px4: 25vw }
+@media(max-width:991px) { :root { --px4: 40vw } }
+@media(max-width:478px) { :root { --px4: 66.667vw } }
+/* section colour bands (client round 2): each band re-themes everything inside it through the same tokens */
+.band { background:var(--bg);color:var(--ink);--placeholder:var(--bg) }
+.band-plum { --bg:#702d4f;--ink:#ffffff;--white:#702d4f;--muted:#ba9aab;--muted-soft:#ad879b;--text-2:#d6c2cc;--faint:#8e5974;--line:#7e4261;--line-soft:#773858;--line-nav:#7b3e5d;--filter:#a1748b }
+.band-teal { --bg:#25bcb5;--ink:#0e3b1f;--muted:#12543c;--muted-soft:#15634e;--text-2:#0e3b1f;--faint:#1c8c7e;--line:#21a398;--line-soft:#23afa6;--line-nav:#22a99e;--filter:#18715e }
+.band-orange { --bg:#f9672a;--ink:#08250f;--muted:#493716;--muted-soft:#663f1a;--text-2:#08250f;--faint:#ac5221;--line:#d25c26;--line-soft:#e66228;--line-nav:#da5e26;--filter:#80461c }
+.band-lime { --bg:#9ab73a;--ink:#0e3b1f;--muted:#2b5525;--muted-soft:#3b6328;--text-2:#0e3b1f;--faint:#688a30;--line:#81a135;--line-soft:#8cab37;--line-nav:#85a436;--filter:#4c722b }
+.band-plum .reel-meta { color:#ffffff }
+/* the template's pixel-grid colour change, now at every band edge: pixels take the NEXT section's colour */
+.px-to-green { color:#89c53e } .px-to-plum { color:#702d4f } .px-to-teal { color:#25bcb5 }
+.px-to-orange { color:#f9672a } .px-to-lime { color:#9ab73a } .px-to-deep { color:#0e3b1f }
+.px-host { position:relative;overflow:hidden;padding-bottom:max(160px,calc((var(--px4) + 24px) * .75)) }
+/* descenders (p, g, y, q) in the new headlines were clipped by the template's tight masks: more room, same layout */
+.hero-mask { padding-bottom:.14em;margin-bottom:-.1em }
+.word-mask { padding-bottom:.14em;margin-bottom:-.14em }
 .process { --muted-soft: #9fb1a5 }
 .reel-frame[data-still] { cursor:url(../cursors/default.svg) 2 0,auto }
 /* header: their own full-colour logo (raster) instead of the template's SVG; nav padding trimmed so the bar keeps its height */
